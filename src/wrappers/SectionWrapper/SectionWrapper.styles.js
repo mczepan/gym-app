@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SectionWrapper = styled.section`
+export const StyledSectionWrapper = styled.section`
     padding: 6rem 0 2rem;
 
     @media screen and (max-width: 768px) {

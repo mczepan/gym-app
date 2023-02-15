@@ -1,7 +1,8 @@
 import React from 'react';
+import { StyledSectionWrapper } from './SectionWrapper.styles';
 
 const SectionWrapper = ({ children }) => {
-    return <SectionWrapper>{children}</SectionWrapper>;
+    return <StyledSectionWrapper>{children}</StyledSectionWrapper>;
 };
 
 export default SectionWrapper;

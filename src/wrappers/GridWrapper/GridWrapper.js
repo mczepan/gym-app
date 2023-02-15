@@ -1,7 +1,8 @@
 import React from 'react';
+import { StyledGridWrapper } from './GridWrapper.styles';
 
 const GridWrapper = ({ children }) => {
-    return <GridWrapper>{children}</GridWrapper>;
+    return <StyledGridWrapper>{children}</StyledGridWrapper>;
 };
 
 export default GridWrapper;
