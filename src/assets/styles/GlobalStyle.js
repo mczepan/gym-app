@@ -53,7 +53,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     /* For medium devices */
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 750px) {
         body {
             margin:${({ theme: { headerHeight } }) => `0 0 ${headerHeight} 0`}
         }

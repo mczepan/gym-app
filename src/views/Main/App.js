@@ -1,9 +1,12 @@
 import React from 'react';
-import ContainerWrapper from 'wrappers/ContainerWrapper/ContainerWrapper';
-import GridWrapper from 'wrappers/GridWrapper/GridWrapper';
+import MainTemplate from 'templates/MainTemplate';
 
 export const App = () => {
-    return <div>app</div>;
+    return (
+        <MainTemplate>
+            <section>APP</section>
+        </MainTemplate>
+    );
 };
 
 export default App;

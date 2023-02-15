@@ -5,7 +5,7 @@ export const StyledSubtitle = styled.section`
     margin-bottom: 4rem;
     text-align: center;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 750px) {
         margin-bottom: var(--mb-3);
     }
 `;
