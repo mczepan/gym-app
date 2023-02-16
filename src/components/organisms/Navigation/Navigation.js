@@ -1,11 +1,21 @@
 import React from 'react';
-import ContainerWrapper from 'wrappers/ContainerWrapper/ContainerWrapper';
+import { Link, NavLink } from 'react-router-dom';
+import { StyledNavLink } from './Navigation.styles';
 
 const Navigation = () => {
     return (
         <header>
             <nav>
-                <ContainerWrapper>Navigation</ContainerWrapper>
+                <ul>
+                    <li>
+                        <StyledNavLink to={`/`}>Home</StyledNavLink>
+                    </li>
+                    <li>
+                        <StyledNavLink to={`/exercises`}>
+                            Exercises
+                        </StyledNavLink>
+                    </li>
+                </ul>
             </nav>
         </header>
     );

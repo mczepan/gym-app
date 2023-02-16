@@ -4,12 +4,10 @@ import ContainerWrapper from 'wrappers/ContainerWrapper/ContainerWrapper';
 
 const MainTemplate = ({ children }) => {
     return (
-        <>
+        <ContainerWrapper>
             <Navigation />
-            <main>
-                <ContainerWrapper>{children}</ContainerWrapper>
-            </main>
-        </>
+            <main>{children}</main>
+        </ContainerWrapper>
     );
 };
 
