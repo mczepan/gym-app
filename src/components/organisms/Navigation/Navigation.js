@@ -1,22 +1,26 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { StyledNavLink } from './Navigation.styles';
+import Logo from 'assets/images/logo192.png';
+
+import {
+    NavBarLogo,
+    StyledNavigation,
+    StyledNavLink,
+} from './Navigation.styles';
 
 const Navigation = () => {
     return (
         <header>
-            <nav>
-                <ul>
-                    <li>
-                        <StyledNavLink to={`/`}>Home</StyledNavLink>
-                    </li>
-                    <li>
-                        <StyledNavLink to={`/exercises`}>
-                            Exercises
-                        </StyledNavLink>
-                    </li>
-                </ul>
-            </nav>
+            <StyledNavigation>
+                <StyledNavLink to={`/`}>
+                    <NavBarLogo src={Logo} alt="logo image" />
+                </StyledNavLink>
+                <StyledNavLink data-item="Home" to={`/`}>
+                    Home
+                </StyledNavLink>
+                <StyledNavLink data-item="Exercises" to={`/exercises`}>
+                    Exercises
+                </StyledNavLink>
+            </StyledNavigation>
         </header>
     );
 };
