@@ -3,6 +3,7 @@ export const theme = {
         title: '#000000',
         titleGrey: '#4d4d4d',
         text: '#000000',
+        textAlternative: '#e86e6e',
         body: '#ffffff',
         container: '#fff',
     },
@@ -42,7 +43,7 @@ export const theme = {
         m1: '1rem',
         m15: '1.5rem',
         m2: '2rem',
-        m25: '25rem',
+        m25: '2.5rem',
         m3: '3rem',
     },
     zIndex: {

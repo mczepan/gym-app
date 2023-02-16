@@ -1,17 +1,15 @@
 import styled from 'styled-components';
 
 export const StyledContainerWrapper = styled.div`
-    max-width: 968px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: ${({ theme: { margin } }) => margin.m3};
+    margin-right: ${({ theme: { margin } }) => margin.m3};
 
-    @media screen and (max-width: 992px) {
-        margin-left: var(--mb-1-5);
-        margin-right: var(--mb-1-5);
+    @media screen and (max-width: 950px) {
+        margin-left: ${({ theme: { margin } }) => margin.m25};
+        margin-right: ${({ theme: { margin } }) => margin.m25};
     }
-
-    @media screen and (max-width: 350px) {
-        margin-left: var(--mb-1);
-        margin-right: var(--mb-1);
+    @media screen and (max-width: 600px) {
+        margin-left: ${({ theme: { margin } }) => margin.m15};
+        margin-right: ${({ theme: { margin } }) => margin.m15};
     }
 `;

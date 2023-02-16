@@ -13,7 +13,7 @@ export const StyledButton = styled.button`
         background-color: var(--title-color);
     }
 
-    @media screen and (max-width: 992px) {
+    @media screen and (max-width: 950px) {
         padding: 1rem 1.75rem;
 
         /* .button__icon {
