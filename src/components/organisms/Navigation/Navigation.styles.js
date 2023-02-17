@@ -52,6 +52,6 @@ export const StyledNavLink = styled(NavLink)`
 `;
 
 export const NavBarLogo = styled.img`
-    height: ${({ theme: { fontSize } }) => fontSize.h1};
+    height: ${({ theme: { fontSize } }) => fontSize.big};
     cursor: pointer;
 `;

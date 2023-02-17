@@ -1,9 +1,9 @@
 export const theme = {
     palette: {
         title: '#000000',
-        titleGrey: '#4d4d4d',
-        text: '#000000',
-        textAlternative: '#e86e6e',
+        titleGrey: '#b3b2af',
+        text: '#ffffff',
+        textAlternative: '#fccb38',
         body: '#ffffff',
         container: '#fff',
     },

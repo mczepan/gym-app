@@ -1,4 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
+import ImageMobile from 'assets/images/backgroundMobile.jpg';
+import Image from 'assets/images/background.jpg';
 
 export const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap');
@@ -24,6 +26,15 @@ export const GlobalStyle = createGlobalStyle`
     body {
         background-color: ${({ theme: { palette } }) => palette.body};
         color: ${({ theme: { palette } }) => palette.text};
+        background-image: url(${Image});
+        background-size: cover;
+        background-position:center;
+        min-height: 100vh;    
+        background-repeat:no-repeat; 
+        @media screen and (max-width: 600px) {
+                background-image: url(${ImageMobile});
+        }
+      
     }
 
     h1,
