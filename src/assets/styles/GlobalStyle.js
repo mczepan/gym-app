@@ -1,6 +1,15 @@
-import { createGlobalStyle } from 'styled-components';
-import ImageMobile from 'assets/images/backgroundMobile.jpg';
+import { createGlobalStyle, keyframes } from 'styled-components';
 import Image from 'assets/images/background.jpg';
+
+const animatedBackground = keyframes`
+ from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: center; 
+   
+  }
+`;
 
 export const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap');
@@ -23,18 +32,17 @@ export const GlobalStyle = createGlobalStyle`
         font-size: ${({ theme: { fontSize } }) => fontSize.medium};
     }  
 
-    body {
+    body { 
+        min-height: 100vh; 
         background-color: ${({ theme: { palette } }) => palette.body};
-        color: ${({ theme: { palette } }) => palette.text};
-        background-image: url(${Image});
+        color: ${({ theme: { palette } }) => palette.text};         
+        background-image: url(${Image}); 
         background-size: cover;
-        background-position:center;
-        min-height: 100vh;    
-        background-repeat:no-repeat; 
+        background-position: 0px 0px;
+        animation: ${animatedBackground} 2s ease-in-out 1 alternate forwards;
         @media screen and (max-width: 600px) {
-                background-image: url(${ImageMobile});
-        }
-      
+            animation: ${animatedBackground} 4s ease-in-out 1 alternate forwards;          
+        }      
     }
 
     h1,
@@ -64,10 +72,10 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     /* For medium devices */
-    @media screen and (max-width: 750px) {
+    /* @media screen and (max-width: 750px) {
         body {
             margin:${({ theme: { headerHeight } }) => `0 0 ${headerHeight} 0`}
         }
-    }
+    } */
    
 `;
