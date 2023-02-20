@@ -12,9 +12,7 @@ const animatedBackground = keyframes`
 `;
 
 export const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap');
-
-    * {
+   * {
         margin: 0;
         padding: 0;
         box-sizing: inherit;

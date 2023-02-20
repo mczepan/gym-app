@@ -2,9 +2,9 @@ export const theme = {
     palette: {
         title: '#000000',
         titleGrey: '#b3b2af',
-        text: '#ffffff',
+        text: '#dadada',
         textAlternative: '#fccb38',
-        body: '#ffffff',
+        body: '#333',
         container: '#fff',
     },
     bodyFont: "'Rubik', sans-serif",
