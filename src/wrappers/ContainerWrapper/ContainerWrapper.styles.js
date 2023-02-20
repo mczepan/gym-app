@@ -4,7 +4,7 @@ export const StyledContainerWrapper = styled.div`
     margin-left: ${({ theme: { margin } }) => margin.m3};
     margin-right: ${({ theme: { margin } }) => margin.m3};
 
-    @media screen and (max-width: 950px) {
+    @media screen and (max-width: 992px) {
         margin-left: ${({ theme: { margin } }) => margin.m2};
         margin-right: ${({ theme: { margin } }) => margin.m2};
     }

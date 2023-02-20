@@ -1,22 +1,28 @@
 import React from 'react';
 import SectionWrapper from 'wrappers/SectionWrapper/SectionWrapper';
-import { Card } from './Home.styles';
+import ExerciseImg from 'assets/images/exercise.jpg';
+import ExerciseImgMobile from 'assets/images/exercise-mobile.jpg';
+import HomeContent from 'components/molecules/HomeContent/HomeContent';
+import {
+    Card,
+    HomeWrapper,
+    ExerciseImage,
+    ExerciseImageMobile,
+} from './Home.styles';
 
 const Home = () => {
     return (
         <SectionWrapper>
             <Card>
-                {' '}
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.
+                <HomeWrapper>
+                    <div></div>
+                    <HomeContent />
+                    <ExerciseImage src={ExerciseImg} alt="Exercise" />
+                    <ExerciseImageMobile
+                        src={ExerciseImgMobile}
+                        alt="Exercise"
+                    />
+                </HomeWrapper>
             </Card>
         </SectionWrapper>
     );
