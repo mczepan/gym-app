@@ -33,7 +33,7 @@ export const GlobalStyle = createGlobalStyle`
     body { 
         min-height: 100vh; 
         background-color: ${({ theme: { palette } }) => palette.body};
-        color: ${({ theme: { palette } }) => palette.text};         
+        color: ${({ theme: { palette } }) => palette.textAlternative};         
         background-image: url(${Image}); 
         background-size: cover;
         background-position: 0px 0px;
@@ -46,7 +46,7 @@ export const GlobalStyle = createGlobalStyle`
     h1,
     h2,
     h3 {
-        color: ${({ theme: { palette } }) => palette.title};
+        color: ${({ theme: { palette } }) => palette.titleGrey};
         font-weight: ${({ theme: { fontWeight } }) => fontWeight.semiBold};
     }
 

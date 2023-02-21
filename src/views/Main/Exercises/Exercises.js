@@ -1,13 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import SectionWrapper from 'wrappers/SectionWrapper/SectionWrapper';
+import { ImgSvg, NoPaddingCard, WaveWrapper } from './Exercises.styles';
+import { ReactComponent as Wave } from 'assets/images/wave.svg';
 
 const Exercises = () => {
     return (
-        <section>
-            <div>Exercises</div>
-            <Link to="/exercises/1">Exercise 1</Link>
-            <Link to="/exercises/2">Exercise 2</Link>
-        </section>
+        <SectionWrapper>
+            <NoPaddingCard>
+                <WaveWrapper></WaveWrapper>
+            </NoPaddingCard>
+        </SectionWrapper>
     );
 };
 
