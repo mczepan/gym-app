@@ -8,7 +8,6 @@ const HomeContent = () => {
     return (
         <HomeContentWrapper>
             <Title text={'ExcerGym by MC'} />
-            {/* <Title text={'IMPROVE YOUR TECHNIQUE!'} size="large" /> */}
             <AnimatedText text={'IMPROVE YOUR TECHNIQUE!'} />
             <p>
                 <Title

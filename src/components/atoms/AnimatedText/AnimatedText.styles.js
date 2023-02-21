@@ -37,16 +37,17 @@ export const Wrapper = styled.div`
 export const AnimatedStyledText = styled.h2`
     font-size: ${({ theme: { fontSize } }) => fontSize.big};
     position: absolute;
+    transform: translate(0px, -50%);
     letter-spacing: ${({ theme: { margin } }) => margin.m05};
 
     &:nth-child(1) {
-        color: ${({ theme: { palette } }) => palette.titleGrey};
-        -webkit-text-stroke: 2px
-            ${({ theme: { palette } }) => palette.titleGrey};
+        color: #8b6905;
+        -webkit-text-stroke: 2px ${({ theme: { palette } }) => palette.title};
     }
 
     &:nth-child(2) {
         color: ${({ theme: { palette } }) => palette.textAlternative};
+        -webkit-text-stroke: 2px ${({ theme: { palette } }) => palette.title};
         animation: ${animate} 2s ease-in-out infinite;
     }
 
@@ -55,14 +56,6 @@ export const AnimatedStyledText = styled.h2`
     }
     @media screen and (max-width: 1146px) {
         font-size: ${({ theme: { fontSize } }) => fontSize.h2};
-    }
-    @media screen and (max-width: 992px) {
-        font-size: ${({ theme: { fontSizeMobile } }) => fontSizeMobile.h1};
-    }
-    @media screen and (max-width: 750px) {
-        font-size: ${({ theme: { fontSizeMobile } }) => fontSizeMobile.h1};
-        position: relative;
-
         &:nth-child(1) {
             color: transparent;
             -webkit-text-stroke: 2px
@@ -71,5 +64,13 @@ export const AnimatedStyledText = styled.h2`
         &:nth-child(2) {
             display: none;
         }
+    }
+    @media screen and (max-width: 992px) {
+        font-size: ${({ theme: { fontSizeMobile } }) => fontSizeMobile.h1};
+        transform: translate(0px, 0%);
+    }
+    @media screen and (max-width: 750px) {
+        font-size: ${({ theme: { fontSizeMobile } }) => fontSizeMobile.h1};
+        position: relative;
     }
 `;
