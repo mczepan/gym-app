@@ -20,6 +20,7 @@ const Home = () => {
                     <ExerciseImage src={ExerciseImg} alt="Exercise" />
                     <ExerciseImageMobile
                         src={ExerciseImgMobile}
+                        loading="lazy"
                         alt="Exercise"
                     />
                 </HomeWrapper>
