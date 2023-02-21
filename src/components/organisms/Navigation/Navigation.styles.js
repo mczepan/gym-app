@@ -12,7 +12,7 @@ export const StyledNavLink = styled(NavLink)`
     text-decoration: none;
     color: ${({ theme: { palette } }) => palette.titleGrey};
     letter-spacing: 0.25rem;
-    font-size: ${({ theme: { fontSize } }) => fontSize.normal};
+    font-size: ${({ theme: { fontSize } }) => fontSize.h3};
     transition: all 0.5s ease-in-out;
     position: relative;
     text-transform: uppercase;
@@ -44,7 +44,7 @@ export const StyledNavLink = styled(NavLink)`
     }
 
     @media screen and (max-width: 750px) {
-        font-size: ${({ theme: { fontSizeMobile } }) => fontSizeMobile.normal};
+        font-size: ${({ theme: { fontSizeMobile } }) => fontSizeMobile.h3};
         &:before {
             text-decoration: none;
         }
@@ -52,6 +52,6 @@ export const StyledNavLink = styled(NavLink)`
 `;
 
 export const NavBarLogo = styled.img`
-    height: ${({ theme: { fontSize } }) => fontSize.h1};
+    height: ${({ theme: { fontSize } }) => fontSize.big};
     cursor: pointer;
 `;

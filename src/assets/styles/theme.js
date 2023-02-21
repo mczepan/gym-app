@@ -1,10 +1,10 @@
 export const theme = {
     palette: {
         title: '#000000',
-        titleGrey: '#4d4d4d',
-        text: '#000000',
-        textAlternative: '#e86e6e',
-        body: '#ffffff',
+        titleGrey: '#b3b2af',
+        text: '#dadada',
+        textAlternative: '#fccb38',
+        body: '#333',
         container: '#fff',
     },
     bodyFont: "'Rubik', sans-serif",
