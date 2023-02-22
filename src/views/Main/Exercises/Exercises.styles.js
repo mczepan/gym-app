@@ -1,5 +1,3 @@
-import { StyledSearchButton } from 'components/atoms/SearchButton/SearchButton.styles';
-import { StyledInput } from 'components/atoms/SearchInput/SearchInput.styles';
 import styled from 'styled-components';
 import { StyledCard } from 'wrappers/CardWrapper/Card.styles';
 
@@ -13,7 +11,7 @@ export const WaveWrapper = styled.div`
     align-items: center;
     justify-content: center;
     content: '';
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
     width: 100%;
