@@ -18,19 +18,5 @@ export const StyledButton = styled.button`
     @media screen and (max-width: 992px) {
         padding: 1rem 1.75rem;
         font-size: ${({ theme: { fontSize } }) => fontSize.small};
-
-        /* .button__icon {
-        width: 22px;
-        height: 22px;
-    } */
     }
 `;
-
-// .button__icon {
-//     margin-left: var(--mb-0-5);
-// }
-
-// .button--flex {
-//     display: inline-flex;
-//     align-items: center;
-// }

@@ -1,3 +1,5 @@
+import { StyledSearchButton } from 'components/atoms/SearchButton/SearchButton.styles';
+import { StyledInput } from 'components/atoms/SearchInput/SearchInput.styles';
 import styled from 'styled-components';
 import { StyledCard } from 'wrappers/CardWrapper/Card.styles';
 
@@ -19,7 +21,6 @@ export const WaveWrapper = styled.div`
     background: ${({ theme: { palette } }) =>
         `linear-gradient(45deg,${palette.textAlternative}, #8b6905)`};
     border-radius: 0 0 20% 20%/0 0 100% 100%;
-    transform: scaleX(1.2);
     &:after {
         position: relative;
         width: 100%;
@@ -27,5 +28,15 @@ export const WaveWrapper = styled.div`
         justify-content: center;
         align-items: center;
         overflow: hidden;
+    }
+
+    @media screen and (max-width: 992px) {
+        height: 15vh;
+    }
+    @media screen and (max-height: 750px) {
+        height: 15vh;
+    }
+    @media screen and (max-height: 400px) {
+        height: 30vh;
     }
 `;
