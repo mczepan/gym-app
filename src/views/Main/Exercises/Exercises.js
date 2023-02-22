@@ -1,16 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchBodyParts } from 'reducers/exercises/ExercisesSlice';
 import SectionWrapper from 'wrappers/SectionWrapper/SectionWrapper';
 import SearchInput from 'components/atoms/SearchInput/SearchInput';
-import { NoPaddingCard, WaveWrapper } from './Exercises.styles';
 import SearchButton from 'components/atoms/SearchButton/SearchButton';
-
+import { NoPaddingCard, WaveWrapper } from './Exercises.styles';
 const Exercises = () => {
+    const dispatch = useDispatch();
+
+    const { bodyParts } = useSelector((state) => state.bodyParts);
     const [search, setSearch] = useState('');
+
     const handleSearchSubmit = (e) => {
         e.preventDefault();
+        dispatch(fetchBodyParts());
         setSearch('');
-        console.log('search', search);
     };
+
+    useEffect(() => {
+        console.log('bodyParts', bodyParts);
+    }, [bodyParts]);
     return (
         <SectionWrapper>
             <NoPaddingCard>
@@ -26,6 +35,11 @@ const Exercises = () => {
                         />
                     </form>
                 </WaveWrapper>
+                <div>
+                    {bodyParts.map((bodyPart) => (
+                        <p>{bodyPart}</p>
+                    ))}
+                </div>
             </NoPaddingCard>
         </SectionWrapper>
     );
