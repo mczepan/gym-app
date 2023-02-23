@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Wrapper, AnimatedStyledText } from './AnimatedText.styles';
 
 const AnimatedText = ({ text }) => {
@@ -11,3 +12,7 @@ const AnimatedText = ({ text }) => {
 };
 
 export default AnimatedText;
+
+AnimatedText.propTypes = {
+    text: PropTypes.string.isRequired,
+};

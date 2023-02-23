@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyledButton } from './Button.styles';
 
 const Button = ({ text = 'Button', ...props }) => {
@@ -6,3 +7,7 @@ const Button = ({ text = 'Button', ...props }) => {
 };
 
 export default Button;
+
+Button.propTypes = {
+    text: PropTypes.string,
+};

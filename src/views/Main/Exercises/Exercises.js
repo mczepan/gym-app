@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBodyParts } from 'reducers/exercises/ExercisesSlice';
 import SectionWrapper from 'wrappers/SectionWrapper/SectionWrapper';
@@ -17,9 +17,6 @@ const Exercises = () => {
         setSearch('');
     };
 
-    useEffect(() => {
-        console.log('bodyParts', bodyParts);
-    }, [bodyParts]);
     return (
         <SectionWrapper>
             <NoPaddingCard>
@@ -30,6 +27,7 @@ const Exercises = () => {
                     >
                         <SearchButton />
                         <SearchInput
+                            placeholderText={'Search exercises...'}
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />
@@ -37,7 +35,7 @@ const Exercises = () => {
                 </WaveWrapper>
                 <div>
                     {bodyParts.map((bodyPart) => (
-                        <p>{bodyPart}</p>
+                        <p key={bodyPart}>{bodyPart}</p>
                     ))}
                 </div>
             </NoPaddingCard>
