@@ -9,6 +9,7 @@ export const fetchBodyParts = createAsyncThunk(
 
 const initialStateBodyPart = {
     bodyParts: bodyParts,
+    activeBodyPart: 'all',
     isLoading: false,
     errorMessage: '',
 };
@@ -16,6 +17,11 @@ const initialStateBodyPart = {
 export const exercisesSlice = createSlice({
     name: 'notes',
     initialState: initialStateBodyPart,
+    reducers: {
+        setActiveBodyPart(state, action) {
+            state.activeBodyPart = action.payload;
+        },
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchBodyParts.pending, (state, action) => {
             // state.isLoading = true;
@@ -43,3 +49,5 @@ export const exercisesSlice = createSlice({
         });
     },
 });
+
+export const { setActiveBodyPart } = exercisesSlice.actions;

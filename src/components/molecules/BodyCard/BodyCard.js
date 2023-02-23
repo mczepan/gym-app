@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setActiveBodyPart } from 'reducers/exercises/ExercisesSlice';
 import {
     BodyCardContent,
     BodyCardHeader,
@@ -6,14 +8,17 @@ import {
     CustomTitle,
 } from './BodyCard.styles';
 
-const BodyCard = ({ bodyPart, selectedBodyPart, setSelectedBodyPart }) => {
+const BodyCard = ({ bodyPart }) => {
+    const dispatch = useDispatch();
+    const { activeBodyPart } = useSelector((state) => state.bodyParts);
+
     const handleBodyPartClick = () => {
-        setSelectedBodyPart(bodyPart.name);
+        dispatch(setActiveBodyPart(bodyPart.name));
     };
 
     return (
         <BodyCardWrapper onClick={handleBodyPartClick}>
-            <BodyCardHeader isActive={selectedBodyPart === bodyPart.name}>
+            <BodyCardHeader isActive={activeBodyPart === bodyPart.name}>
                 {bodyPart.iconRender()}
             </BodyCardHeader>
             <BodyCardContent>
