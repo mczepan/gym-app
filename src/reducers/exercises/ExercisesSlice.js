@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import request from 'common/api';
+import { bodyParts } from 'helpers/helpers';
 
 export const fetchBodyParts = createAsyncThunk(
     'exercises/bodyPartList',
@@ -7,18 +8,7 @@ export const fetchBodyParts = createAsyncThunk(
 );
 
 const initialStateBodyPart = {
-    bodyParts: [
-        'back',
-        'cardio',
-        'chest',
-        'lower arms',
-        'lower legs',
-        'neck',
-        'shoulders',
-        'upper arms',
-        'upper legs',
-        'waist',
-    ],
+    bodyParts: bodyParts,
     isLoading: false,
     errorMessage: '',
 };
