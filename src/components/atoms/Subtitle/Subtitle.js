@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyledSubtitle } from './Subtitle.styles';
 
 const Subtitle = ({ text = 'Subtitle' }) => {
@@ -6,3 +7,7 @@ const Subtitle = ({ text = 'Subtitle' }) => {
 };
 
 export default Subtitle;
+
+Subtitle.propTypes = {
+    text: PropTypes.string,
+};
