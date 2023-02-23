@@ -1,6 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import request from 'common/api';
 import { bodyParts } from 'helpers/helpers';
+import { loadState, saveState } from 'localStorage';
+
+const persistedActiveBodyPartState = loadState();
 
 export const fetchBodyParts = createAsyncThunk(
     'exercises/bodyPartList',
@@ -9,7 +12,9 @@ export const fetchBodyParts = createAsyncThunk(
 
 const initialStateBodyPart = {
     bodyParts: bodyParts,
-    activeBodyPart: 'all',
+    activeBodyPart: persistedActiveBodyPartState
+        ? persistedActiveBodyPartState
+        : 'all',
     isLoading: false,
     errorMessage: '',
 };
@@ -19,6 +24,7 @@ export const exercisesSlice = createSlice({
     initialState: initialStateBodyPart,
     reducers: {
         setActiveBodyPart(state, action) {
+            saveState(action.payload);
             state.activeBodyPart = action.payload;
         },
     },

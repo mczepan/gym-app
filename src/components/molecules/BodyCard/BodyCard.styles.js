@@ -15,8 +15,10 @@ export const BodyCardWrapper = styled.div`
         rgba(0, 0, 0, 0.23) 0px 6px 6px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    &:hover {
-        transform: scale(1.1);
+    @media screen and (min-width: 992px) {
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 `;
 
