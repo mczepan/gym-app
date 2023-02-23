@@ -9,7 +9,7 @@ const BodyParts = () => {
     return (
         <BodyPartsWrapper>
             {bodyParts.map((bodyPart) => (
-                <BodyCard key={bodyPart} />
+                <BodyCard key={bodyPart.name} bodyPart={bodyPart} />
             ))}
         </BodyPartsWrapper>
     );
