@@ -1,5 +1,4 @@
 import React from 'react';
-import { ReactComponent as Icon } from 'assets/images/all.svg';
 import {
     BodyCardContent,
     BodyCardHeader,
@@ -7,10 +6,16 @@ import {
     CustomTitle,
 } from './BodyCard.styles';
 
-const BodyCard = ({ bodyPart }) => {
+const BodyCard = ({ bodyPart, selectedBodyPart, setSelectedBodyPart }) => {
+    const handleBodyPartClick = () => {
+        setSelectedBodyPart(bodyPart.name);
+    };
+
     return (
-        <BodyCardWrapper>
-            <BodyCardHeader>{bodyPart.iconRender()}</BodyCardHeader>
+        <BodyCardWrapper onClick={handleBodyPartClick}>
+            <BodyCardHeader isActive={selectedBodyPart === bodyPart.name}>
+                {bodyPart.iconRender()}
+            </BodyCardHeader>
             <BodyCardContent>
                 <CustomTitle>{bodyPart.name}</CustomTitle>
             </BodyCardContent>

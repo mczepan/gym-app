@@ -23,10 +23,17 @@ export const BodyCardWrapper = styled.div`
 export const BodyCardHeader = styled.div`
     height: 100px;
     width: 100%;
-    background: red;
-    border-radius: 100% 0% 100% 0% / 0% 50% 50% 100%;
+    background: ${({ isActive, theme: { palette } }) =>
+        isActive
+            ? `linear-gradient(45deg,${palette.textAlternative}, #8b6905)`
+            : 'inherit'};
+    border-radius: ${({ isActive }) =>
+        isActive
+            ? '100% 0% 100% 0% / 0% 50% 50% 100%'
+            : '100% 0% 100% 0% / 0% 0% 0% 0%'};
     display: grid;
     place-items: center;
+    transition: all 0.5s ease-in-out;
 `;
 
 export const BodyCardContent = styled.div`
