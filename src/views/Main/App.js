@@ -1,9 +1,9 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import MainTemplate from 'templates/MainTemplate';
-import Exercise from './Exercise/Exercise';
-import Exercises from './Exercises/Exercises';
-import Home from './Home/Home';
+import Exercise from '../Exercise/Exercise';
+import Exercises from '../Exercises/Exercises';
+import Home from '../Home/Home';
 
 export const App = () => {
     return (

@@ -69,6 +69,31 @@ export const GlobalStyle = createGlobalStyle`
         height: auto;
     }
     
+     /* height & width*/
+     ::-webkit-scrollbar {
+        height: 10px;
+        width: 5px;
+        border: 4px solid rgba(0, 0, 0, 0);
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    .scrolling-wrapper {
+        -webkit-overflow-scrolling: touch;
+    }
     /* For medium devices */
     /* @media screen and (max-width: 750px) {
         body {
