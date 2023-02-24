@@ -1,8 +1,9 @@
 import React from 'react';
 import SectionWrapper from 'wrappers/SectionWrapper/SectionWrapper';
 import Search from 'components/organisms/Search/Search';
-import { NoPaddingCard } from './Exercises.styles';
 import BodyParts from 'components/organisms/BodyParts/BodyParts';
+import ExercisesList from 'components/organisms/ExercisesList/ExercisesList';
+import { NoPaddingCard } from './Exercises.styles';
 
 const Exercises = () => {
     return (
@@ -10,11 +11,7 @@ const Exercises = () => {
             <NoPaddingCard>
                 <Search />
                 <BodyParts />
-                {/* <div>
-                    {bodyParts.map((bodyPart) => (
-                        <p key={bodyPart}>{bodyPart}</p>
-                    ))}
-                </div> */}
+                <ExercisesList />
             </NoPaddingCard>
         </SectionWrapper>
     );

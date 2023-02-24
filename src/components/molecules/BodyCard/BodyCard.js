@@ -10,7 +10,7 @@ import {
 
 const BodyCard = ({ bodyPart }) => {
     const dispatch = useDispatch();
-    const { activeBodyPart } = useSelector((state) => state.bodyParts);
+    const { activeBodyPart } = useSelector((state) => state);
 
     const handleBodyPartClick = () => {
         dispatch(setActiveBodyPart(bodyPart.name));
