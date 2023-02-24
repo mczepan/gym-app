@@ -17,7 +17,7 @@ const BodyCard = ({ bodyPart }) => {
     };
 
     return (
-        <BodyCardWrapper onClick={handleBodyPartClick}>
+        <BodyCardWrapper onClick={handleBodyPartClick} id={bodyPart.name}>
             <BodyCardHeader isActive={activeBodyPart === bodyPart.name}>
                 {bodyPart.iconRender()}
             </BodyCardHeader>
