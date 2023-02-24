@@ -4,9 +4,7 @@ import { useSelector } from 'react-redux';
 import { BodyPartsWrapper } from './BodyParts.styles';
 
 const BodyParts = () => {
-    const { bodyParts, activeBodyPart } = useSelector(
-        (state) => state.bodyParts
-    );
+    const { bodyParts, activeBodyPart } = useSelector((state) => state);
 
     useEffect(() => {
         const scrollTo = document.getElementById(activeBodyPart);
