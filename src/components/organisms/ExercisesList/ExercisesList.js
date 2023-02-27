@@ -1,15 +1,16 @@
-import ExerciseItem from 'components/molecules/ExerciseItem/ExerciseItem';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import ExerciseItem from 'components/molecules/ExerciseItem/ExerciseItem';
+import { ExercisesListGridWrapper } from './ExercisesList.styles';
 
 const ExercisesList = () => {
     const { exercises } = useSelector((state) => state);
     return (
-        <div>
+        <ExercisesListGridWrapper>
             {exercises.map((e) => (
-                <ExerciseItem exercise={e} />
+                <ExerciseItem exercise={e} key={e.id} />
             ))}
-        </div>
+        </ExercisesListGridWrapper>
     );
 };
 
