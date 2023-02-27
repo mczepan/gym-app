@@ -16,7 +16,7 @@ export const theme = {
         h3: '1.25rem',
         normal: '1rem',
         small: '0.875rem',
-        smaller: '0.813rem',
+        smaller: '0.75rem',
         tiny: '0.625rem',
     },
     fontSizeMobile: {
