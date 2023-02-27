@@ -10,6 +10,7 @@ const BodyParts = () => {
         const scrollTo = document.getElementById(activeBodyPart);
         scrollTo.scrollIntoView({
             behavior: 'smooth',
+            block: 'nearest',
             inline: 'center',
         });
     }, [activeBodyPart]);
