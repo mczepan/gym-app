@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const ExerciseItemWrapper = styled.div`
     justify-self: center;
-    display: flex;
     flex-direction: column;
     padding: 1.5rem 0;
     border-radius: 1.35rem;
@@ -32,9 +31,6 @@ export const ExerciseName = styled.span`
     font-size: ${({ theme: { fontSize } }) => fontSize.normal};
     font-weight: 600;
     text-transform: capitalize;
-    text-align: center;
-`;
-
-export const ChipTextWrapper = styled.div`
-    margin: 5px;
+    display: table;
+    margin: auto;
 `;

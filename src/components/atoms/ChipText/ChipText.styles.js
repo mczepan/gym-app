@@ -10,4 +10,6 @@ export const StyledChipText = styled.span`
     color: whitesmoke;
     background: #feb904;
     text-transform: capitalize;
+    width: fit-content;
+    display: inline-block;
 `;
