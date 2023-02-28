@@ -23,10 +23,18 @@ export const fetchExercises = createAsyncThunk(
     }
 );
 
+export const fetchExerciseDetails = createAsyncThunk(
+    'exercises/fetchExerciseDetails',
+    async (id) => {
+        // await request.get(`/exercises/exercise/${id}`);
+        await request.get(`/`);
+    }
+);
+
 const initialState = {
     exercises: [],
+    exerciseDetails: {},
     bodyParts: bodyParts,
-
     activeBodyPart: persistedActiveBodyPartState
         ? persistedActiveBodyPartState
         : 'all',
@@ -134,6 +142,27 @@ export const exercisesSlice = createSlice({
         });
         builder.addCase(fetchExercises.rejected, (state, action) => {
             state.exercises = [];
+            state.isLoading = false;
+            state.errorMessage = action.error.message;
+        });
+
+        builder.addCase(fetchExerciseDetails.pending, (state, action) => {
+            state.isLoading = true;
+            state.exerciseDetails = {};
+        });
+        builder.addCase(fetchExerciseDetails.fulfilled, (state, action) => {
+            state.exerciseDetails = {
+                bodyPart: 'waist',
+                equipment: 'body weight',
+                gifUrl: 'http://d205bpvrqc9yn1.cloudfront.net/0001.gif',
+                id: '0001',
+                name: '3/4 sit-up',
+                target: 'abs',
+            };
+            state.isLoading = false;
+        });
+        builder.addCase(fetchExerciseDetails.rejected, (state, action) => {
+            state.exerciseDetails = {};
             state.isLoading = false;
             state.errorMessage = action.error.message;
         });
