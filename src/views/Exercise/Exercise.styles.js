@@ -13,17 +13,15 @@ export const PaddingCard = styled(StyledCard)`
 
 export const ExerciseDetailsWrapper = styled.div`
     display: grid;
-    grid-template-columns: repeat(1, 1.5fr 1fr);
+    grid-template-columns: repeat(1, 1fr 1.5fr);
     column-gap: 2rem;
-    /* align-items: center;*/
     justify-items: center;
     @media screen and (max-width: 992px) {
         row-gap: 2rem;
     }
 
     @media screen and (max-width: 750px) {
-        display: flex;
-        flex-direction: column-reverse;
-        column-gap: 1rem;
+        grid-template-columns: 1fr;
+        row-gap: 0rem;
     }
 `;

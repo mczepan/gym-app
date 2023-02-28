@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchExerciseDetails } from 'reducers/exercises/ExercisesSlice';
-import Card from 'wrappers/CardWrapper/Card';
 import SectionWrapper from 'wrappers/SectionWrapper/SectionWrapper';
 import { ExerciseDetailsWrapper, PaddingCard } from './Exercise.styles';
 import ExerciseGifImage from 'components/atoms/ExerciseGifImage/ExerciseGifImage';
@@ -12,7 +11,7 @@ const Exercise = () => {
     const { id } = useParams();
 
     const {
-        exerciseDetails: { gifUrl, name, bodyPart, equipment, target },
+        exerciseDetails: { gifUrl, name },
     } = useSelector((state) => state);
     const dispatch = useDispatch();
 
@@ -26,13 +25,8 @@ const Exercise = () => {
         <SectionWrapper>
             <PaddingCard>
                 <ExerciseDetailsWrapper>
+                    <ExerciseDetails />
                     <ExerciseGifImage gifUrl={gifUrl} name={name} />
-                    <ExerciseDetails
-                        bodyPart={bodyPart}
-                        equipment={equipment}
-                        name={name}
-                        target={target}
-                    />
                 </ExerciseDetailsWrapper>
             </PaddingCard>
         </SectionWrapper>
