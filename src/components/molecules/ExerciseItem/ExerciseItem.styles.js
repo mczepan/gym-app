@@ -1,6 +1,8 @@
+import { StyledButton } from 'components/atoms/Button/Button.styles';
 import styled from 'styled-components';
 
 export const ExerciseItemWrapper = styled.div`
+    display: flex;
     justify-self: center;
     flex-direction: column;
     padding: 1.5rem 0;
@@ -26,11 +28,30 @@ export const ExerciseItemWrapper = styled.div`
     }
 `;
 
+export const ChipWrapper = styled.div`
+    display: flex;
+    @media screen and (max-width: 992px) {
+        flex-direction: column;
+    }
+`;
+
 export const ExerciseName = styled.span`
+    /* height: 100%; */
     color: ${({ theme: { palette } }) => palette.title};
     font-size: ${({ theme: { fontSize } }) => fontSize.normal};
     font-weight: 600;
     text-transform: capitalize;
     display: table;
     margin: auto;
+    padding: ${({ theme: { margin } }) => margin.m05};
+`;
+
+export const DetailsButton = styled(StyledButton)`
+    padding: 0.5rem 1rem;
+    background-color: #e1dede;
+    color: ${({ theme: { palette } }) => palette.body};
+    margin: inherit;
+    @media screen and (min-width: 992px) {
+        display: none;
+    }
 `;
