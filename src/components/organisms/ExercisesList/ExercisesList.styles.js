@@ -5,8 +5,19 @@ export const ExercisesListGridWrapper = styled(StyledGridWrapper)`
     padding: ${({ theme: { margin } }) => margin.m2};
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
-    @media screen and (max-width: 600px) {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    @media screen and (max-width: 992px) {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         padding: ${({ theme: { margin } }) => `${margin.m1} ${margin.m025}`};
+    }
+    @media screen and (max-width: 600px) {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        padding: ${({ theme: { margin } }) => `${margin.m1} ${margin.m025}`};
+    }
+`;
+
+export const ChipWrapper = styled.div`
+    display: flex;
+    @media screen and (max-width: 992px) {
+        flex-direction: column;
     }
 `;

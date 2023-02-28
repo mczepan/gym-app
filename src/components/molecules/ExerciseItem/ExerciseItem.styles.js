@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ExerciseItemWrapper = styled.div`
+    display: flex;
     justify-self: center;
     flex-direction: column;
     padding: 1.5rem 0;
@@ -27,10 +28,12 @@ export const ExerciseItemWrapper = styled.div`
 `;
 
 export const ExerciseName = styled.span`
+    /* height: 100%; */
     color: ${({ theme: { palette } }) => palette.title};
     font-size: ${({ theme: { fontSize } }) => fontSize.normal};
     font-weight: 600;
     text-transform: capitalize;
     display: table;
     margin: auto;
+    padding: ${({ theme: { margin } }) => margin.m05};
 `;
