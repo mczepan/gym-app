@@ -4,12 +4,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchExerciseDetails } from 'reducers/exercises/ExercisesSlice';
 import Card from 'wrappers/CardWrapper/Card';
 import SectionWrapper from 'wrappers/SectionWrapper/SectionWrapper';
-import { ExerciseDetailsWrapper } from './Exercise.styles';
+import { ExerciseDetailsWrapper, PaddingCard } from './Exercise.styles';
+import ExerciseGifImage from 'components/atoms/ExerciseGifImage/ExerciseGifImage';
+import ExerciseDetails from 'components/organisms/ExerciseDetails/ExerciseDetails';
 
 const Exercise = () => {
     const { id } = useParams();
 
-    const { exerciseDetails } = useSelector((state) => state);
+    const {
+        exerciseDetails: { gifUrl, name, bodyPart, equipment, target },
+    } = useSelector((state) => state);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -20,12 +24,17 @@ const Exercise = () => {
 
     return (
         <SectionWrapper>
-            <Card>
+            <PaddingCard>
                 <ExerciseDetailsWrapper>
-                    <div>s1</div>
-                    <div>s2</div>
+                    <ExerciseGifImage gifUrl={gifUrl} name={name} />
+                    <ExerciseDetails
+                        bodyPart={bodyPart}
+                        equipment={equipment}
+                        name={name}
+                        target={target}
+                    />
                 </ExerciseDetailsWrapper>
-            </Card>
+            </PaddingCard>
         </SectionWrapper>
     );
 };

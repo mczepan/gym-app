@@ -6,11 +6,11 @@ export const ExercisesListGridWrapper = styled(StyledGridWrapper)`
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
     @media screen and (max-width: 992px) {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         padding: ${({ theme: { margin } }) => `${margin.m1} ${margin.m025}`};
     }
-    @media screen and (max-width: 600px) {
+    /* @media screen and (max-width: 600px) {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
         padding: ${({ theme: { margin } }) => `${margin.m1} ${margin.m025}`};
-    }
+    } */
 `;
