@@ -14,10 +14,3 @@ export const ExercisesListGridWrapper = styled(StyledGridWrapper)`
         padding: ${({ theme: { margin } }) => `${margin.m1} ${margin.m025}`};
     }
 `;
-
-export const ChipWrapper = styled.div`
-    display: flex;
-    @media screen and (max-width: 992px) {
-        flex-direction: column;
-    }
-`;
