@@ -4,7 +4,7 @@ import ExerciseItem from 'components/molecules/ExerciseItem/ExerciseItem';
 import { ExercisesListGridWrapper } from './ExercisesList.styles';
 
 const ExercisesList = () => {
-    const { exercises } = useSelector((state) => state);
+    const { exercises } = useSelector((state) => state.exercises);
     return (
         <ExercisesListGridWrapper>
             {exercises.map((e) => (

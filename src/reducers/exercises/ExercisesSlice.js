@@ -26,8 +26,17 @@ export const fetchExercises = createAsyncThunk(
 export const fetchExerciseDetails = createAsyncThunk(
     'exercises/fetchExerciseDetails',
     async (id) => {
+        console.log('exercises/fetchExerciseDetails');
         // await request.get(`/exercises/exercise/${id}`);
-        await request.get(`/`);
+        const response = await request.get(`/`);
+        return {
+            bodyPart: 'waist',
+            equipment: 'body weight',
+            gifUrl: 'http://d205bpvrqc9yn1.cloudfront.net/0001.gif',
+            id: '0001',
+            name: '3/4 sit-up',
+            target: 'abs',
+        };
     }
 );
 
@@ -43,7 +52,7 @@ const initialState = {
 };
 
 export const exercisesSlice = createSlice({
-    name: 'notes',
+    name: 'exercises',
     initialState: initialState,
     reducers: {
         setActiveBodyPart(state, action) {

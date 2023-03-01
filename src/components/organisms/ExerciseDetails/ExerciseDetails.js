@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 const ExerciseDetails = () => {
     const {
         exerciseDetails: { name, bodyPart, equipment, target },
-    } = useSelector((state) => state);
+    } = useSelector((state) => state.exercises);
 
     return name ? (
         <ExerciseDetailsContentWrapper>

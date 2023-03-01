@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    fetchBodyParts,
-    fetchExercises,
-} from 'reducers/exercises/ExercisesSlice';
+import { fetchExercises } from 'reducers/exercises/ExercisesSlice';
 import SearchButton from 'components/atoms/SearchButton/SearchButton';
 import SearchInput from 'components/atoms/SearchInput/SearchInput';
 import { WaveWrapper } from './Search.styles';
@@ -11,7 +8,7 @@ import { WaveWrapper } from './Search.styles';
 const Search = () => {
     const dispatch = useDispatch();
     const [search, setSearch] = useState('');
-    const { activeBodyPart } = useSelector((state) => state);
+    const { activeBodyPart } = useSelector((state) => state.exercises);
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
