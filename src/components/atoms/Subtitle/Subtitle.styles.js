@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 
-export const StyledSubtitle = styled.section`
-    font-size: var(--small-font-size);
-    margin-bottom: 4rem;
+export const StyledSubtitle = styled.span`
+    font-size: ${({ theme: { fontSize } }) => fontSize.normal};
+    color: ${({ theme: { palette } }) => palette.title};
     text-align: center;
-
-    @media screen and (max-width: 750px) {
-        margin-bottom: var(--mb-3);
-    }
+    padding: 0.25rem;
 `;

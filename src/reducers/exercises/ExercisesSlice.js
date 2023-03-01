@@ -26,7 +26,6 @@ export const fetchExercises = createAsyncThunk(
 export const fetchExerciseDetails = createAsyncThunk(
     'exercises/fetchExerciseDetails',
     async (id) => {
-        console.log('exercises/fetchExerciseDetails');
         // await request.get(`/exercises/exercise/${id}`);
         const response = await request.get(`/`);
         return {

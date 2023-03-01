@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ExerciseDetailsContentWrapper = styled.div`
+    grid-column: span 1;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -12,6 +13,7 @@ export const ExerciseDetailsContentWrapper = styled.div`
 `;
 
 export const ContentText = styled.p`
+    grid-column: span 2;
     text-align: justify;
     letter-spacing: 3px;
     font-size: 16px;

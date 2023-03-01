@@ -15,13 +15,13 @@ export const ExerciseDetailsWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(1, 1fr 1.5fr);
     column-gap: 2rem;
+    row-gap: 2rem;
     justify-items: center;
     @media screen and (max-width: 992px) {
-        row-gap: 2rem;
+        column-gap: 0rem;
     }
 
     @media screen and (max-width: 750px) {
         grid-template-columns: 1fr;
-        row-gap: 0rem;
     }
 `;

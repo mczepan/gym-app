@@ -10,7 +10,6 @@ export const fetchVideoData = createAsyncThunk(
         //     },
         // })
         {
-            console.log('video/fetchVideoData');
             await requestVideo.get(`/`);
         }
 );

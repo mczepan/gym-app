@@ -7,6 +7,7 @@ import { ExerciseDetailsWrapper, PaddingCard } from './Exercise.styles';
 import ExerciseGifImage from 'components/atoms/ExerciseGifImage/ExerciseGifImage';
 import ExerciseDetails from 'components/organisms/ExerciseDetails/ExerciseDetails';
 import { fetchVideoData } from 'reducers/video/VideoSlice';
+import ExerciseVideos from 'components/organisms/ExerciseVideos/ExerciseVideos';
 
 const Exercise = () => {
     const { id: exerciseId } = useParams();
@@ -14,7 +15,6 @@ const Exercise = () => {
     const {
         exerciseDetails: { gifUrl, name, id },
     } = useSelector((state) => state.exercises);
-    const { videoData } = useSelector((state) => state.video);
 
     const dispatch = useDispatch();
 
@@ -29,16 +29,17 @@ const Exercise = () => {
         })();
     }, [exerciseId, dispatch]);
 
-    console.log('videoData', videoData);
-
     return (
         <SectionWrapper>
             <PaddingCard>
-                <ExerciseDetailsWrapper>
-                    <ExerciseDetails />
-                    <ExerciseGifImage gifUrl={gifUrl} name={name} />
-                    <div>1</div>
-                </ExerciseDetailsWrapper>
+                {name ? (
+                    <ExerciseDetailsWrapper>
+                        <ExerciseDetails />
+                        <ExerciseGifImage gifUrl={gifUrl} name={name} />
+                        <ExerciseVideos name={name}>1</ExerciseVideos>
+                        <div style={{ gridColumn: 'span 2' }}>2</div>
+                    </ExerciseDetailsWrapper>
+                ) : null}
             </PaddingCard>
         </SectionWrapper>
     );
