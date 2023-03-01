@@ -12,11 +12,40 @@ export const fetchBodyParts = createAsyncThunk(
 
 export const fetchExercises = createAsyncThunk(
     'exercises/fetchExercises',
-    async (bodyPart) => {
+    async ({ bodyPart, search }) => {
         if (bodyPart === 'all') {
-            return await request.get(`/exercises`);
+            let response = await request.get(`/exercises`);
+            if (search) {
+                response = {
+                    ...response,
+                    data: response.data.filter((data) => {
+                        return (
+                            data.name.toLowerCase().includes(search) ||
+                            data.target.toLowerCase().includes(search) ||
+                            data.equipment.toLowerCase().includes(search) ||
+                            data.bodyPart.toLowerCase().includes(search)
+                        );
+                    }),
+                };
+            }
+
+            return response;
         } else {
-            return await request.get(`/exercises/bodyPart/${bodyPart}`);
+            let response = await request.get(`/exercises/bodyPart/${bodyPart}`);
+            if (search) {
+                response = {
+                    ...response,
+                    data: response.data.filter((data) => {
+                        return (
+                            data.name.toLowerCase().includes(search) ||
+                            data.target.toLowerCase().includes(search) ||
+                            data.equipment.toLowerCase().includes(search) ||
+                            data.bodyPart.toLowerCase().includes(search)
+                        );
+                    }),
+                };
+            }
+            return response;
         }
     }
 );
