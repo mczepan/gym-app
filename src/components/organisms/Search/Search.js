@@ -12,8 +12,13 @@ const Search = () => {
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
+        dispatch(
+            fetchExercises({
+                bodyPart: activeBodyPart,
+                search: search.toLowerCase(),
+            })
+        );
         setSearch('');
-        dispatch(fetchExercises(activeBodyPart));
     };
     return (
         <WaveWrapper>
