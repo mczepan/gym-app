@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const requestVideo = axios.create({
-    baseURL: ' https://catfact.ninja/fact/',
+    baseURL: 'https://youtube-search-and-download.p.rapidapi.com/',
 });
 
 // https://youtube-search-and-download.p.rapidapi.com/

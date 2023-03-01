@@ -37,7 +37,6 @@ const Exercise = () => {
                         <ExerciseDetails />
                         <ExerciseGifImage gifUrl={gifUrl} name={name} />
                         <ExerciseVideos name={name}>1</ExerciseVideos>
-                        <div style={{ gridColumn: 'span 2' }}>2</div>
                     </ExerciseDetailsWrapper>
                 ) : null}
             </PaddingCard>

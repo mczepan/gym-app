@@ -3,10 +3,7 @@ import ExerciseVideoItem from 'components/molecules/ExerciseVideoItem/ExerciseVi
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { BodyPartsWrapper } from '../BodyParts/BodyParts.styles';
-import {
-    ExerciseVideosWrapper,
-    VideosCardWrapper,
-} from './ExerciseVideos.styles';
+import { ExerciseVideosWrapper } from './ExerciseVideos.styles';
 
 const ExerciseVideos = ({ name }) => {
     const { videoData } = useSelector((state) => state.video);

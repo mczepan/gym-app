@@ -10,6 +10,9 @@ export const ExerciseDetailsContentWrapper = styled.div`
     @media screen and (max-width: 600px) {
         padding: ${({ theme: { margin } }) => `${margin.m025} ${margin.m025}`};
     }
+    @media screen and (max-width: 992px) {
+        grid-column: span 2;
+    }
 `;
 
 export const ContentText = styled.p`

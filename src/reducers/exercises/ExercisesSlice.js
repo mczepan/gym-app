@@ -14,11 +14,9 @@ export const fetchExercises = createAsyncThunk(
     'exercises/fetchExercises',
     async (bodyPart) => {
         if (bodyPart === 'all') {
-            // await request.get(`/exercises`);
-            await request.get(`/`);
+            return await request.get(`/exercises`);
         } else {
-            // await request.get(`/exercises/bodyPart/${bodyPart}`);
-            await request.get(`/`);
+            return await request.get(`/exercises/bodyPart/${bodyPart}`);
         }
     }
 );
@@ -26,16 +24,8 @@ export const fetchExercises = createAsyncThunk(
 export const fetchExerciseDetails = createAsyncThunk(
     'exercises/fetchExerciseDetails',
     async (id) => {
-        // await request.get(`/exercises/exercise/${id}`);
-        const response = await request.get(`/`);
-        return {
-            bodyPart: 'waist',
-            equipment: 'body weight',
-            gifUrl: 'http://d205bpvrqc9yn1.cloudfront.net/0001.gif',
-            id: '0001',
-            name: '3/4 sit-up',
-            target: 'abs',
-        };
+        const response = await request.get(`/exercises/exercise/${id}`);
+        return response.data;
     }
 );
 
@@ -77,75 +67,18 @@ export const exercisesSlice = createSlice({
             //     'upper legs',
             //     'waist',
             // ];
-            state.isLoading = false;
+            // state.isLoading = false;
         });
         builder.addCase(fetchBodyParts.rejected, (state, action) => {
             state.bodyParts = [];
-            state.isLoading = false;
+            // state.isLoading = false;
             state.errorMessage = action.error.message;
         });
         builder.addCase(fetchExercises.pending, (state, action) => {
             state.isLoading = true;
         });
         builder.addCase(fetchExercises.fulfilled, (state, action) => {
-            state.exercises = [
-                {
-                    bodyPart: 'waist',
-                    equipment: 'body weight',
-                    gifUrl: 'http://d205bpvrqc9yn1.cloudfront.net/0001.gif',
-                    id: '0001',
-                    name: '3/4 sit-up',
-                    target: 'abs',
-                },
-                {
-                    bodyPart: 'waist',
-                    equipment: 'body weight',
-                    gifUrl: 'http://d205bpvrqc9yn1.cloudfront.net/0002.gif',
-                    id: '0002',
-                    name: '45° side bend',
-                    target: 'abs',
-                },
-                {
-                    bodyPart: 'waist',
-                    equipment: 'body weight',
-                    gifUrl: 'http://d205bpvrqc9yn1.cloudfront.net/0003.gif',
-                    id: '0003',
-                    name: 'air bike',
-                    target: 'abs',
-                },
-                {
-                    bodyPart: 'upper legs',
-                    equipment: 'body weight',
-                    gifUrl: 'http://d205bpvrqc9yn1.cloudfront.net/1512.gif',
-                    id: '1512',
-                    name: 'all fours squad stretch',
-                    target: 'quads',
-                },
-                {
-                    bodyPart: 'waist',
-                    equipment: 'body weight',
-                    gifUrl: 'http://d205bpvrqc9yn1.cloudfront.net/0006.gif',
-                    id: '0006',
-                    name: 'alternate heel touchers',
-                    target: 'abs',
-                },
-                {
-                    bodyPart: 'back',
-                    equipment: 'cable',
-                    gifUrl: 'http://d205bpvrqc9yn1.cloudfront.net/0007.gif',
-                    id: '0007',
-                    name: 'alternate lateral pulldown',
-                    target: 'lats',
-                },
-                {
-                    bodyPart: 'lower legs',
-                    equipment: 'body weight',
-                    gifUrl: 'http://d205bpvrqc9yn1.cloudfront.net/1368.gif',
-                    id: '1368',
-                    name: 'ankle circles',
-                    target: 'calves',
-                },
-            ];
+            state.exercises = action.payload.data;
             state.isLoading = false;
         });
         builder.addCase(fetchExercises.rejected, (state, action) => {
@@ -159,14 +92,7 @@ export const exercisesSlice = createSlice({
             state.exerciseDetails = {};
         });
         builder.addCase(fetchExerciseDetails.fulfilled, (state, action) => {
-            state.exerciseDetails = {
-                bodyPart: 'waist',
-                equipment: 'body weight',
-                gifUrl: 'http://d205bpvrqc9yn1.cloudfront.net/0001.gif',
-                id: '0001',
-                name: '3/4 sit-up',
-                target: 'abs',
-            };
+            state.exerciseDetails = action.payload;
             state.isLoading = false;
         });
         builder.addCase(fetchExerciseDetails.rejected, (state, action) => {

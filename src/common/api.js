@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const request = axios.create({
-    baseURL: 'https://catfact.ninja/fact/',
+    baseURL: 'https://exercisedb.p.rapidapi.com/',
 });
 
 // https://exercisedb.p.rapidapi.com/
