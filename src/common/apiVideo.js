@@ -1,18 +1,18 @@
 import axios from 'axios';
 
-const request = axios.create({
-    baseURL: 'https://exercisedb.p.rapidapi.com/',
+const requestVideo = axios.create({
+    baseURL: 'https://youtube-search-and-download.p.rapidapi.com/',
 });
 
-// https://exercisedb.p.rapidapi.com/
+// https://youtube-search-and-download.p.rapidapi.com/
 
 // https://catfact.ninja/fact/
 
-request.interceptors.request.use(
+requestVideo.interceptors.request.use(
     (request) => {
         request.headers['X-RapidAPI-Key'] = process.env.REACT_APP_RAPID_API_KEY;
         request.headers['X-RapidAPI-Host'] =
-            process.env.REACT_APP_RAPID_API_HOST;
+            process.env.REACT_APP_RAPID_API_VIDEO_HOST;
         return request;
     },
     (error) => {
@@ -20,4 +20,4 @@ request.interceptors.request.use(
     }
 );
 
-export default request;
+export default requestVideo;

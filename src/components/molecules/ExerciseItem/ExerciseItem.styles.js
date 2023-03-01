@@ -19,6 +19,7 @@ export const ExerciseItemWrapper = styled.div`
     }
     @media screen and (max-width: 600px) {
         padding: ${({ theme: { margin } }) => `${margin.m1} ${margin.m025}`};
+        width: 200px;
     }
 
     @media screen and (min-width: 992px) {
