@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchExercises } from 'reducers/exercises/ExercisesSlice';
 import SearchButton from 'components/atoms/SearchButton/SearchButton';
@@ -8,7 +8,21 @@ import { WaveWrapper } from './Search.styles';
 const Search = () => {
     const dispatch = useDispatch();
     const [search, setSearch] = useState('');
-    const { activeBodyPart } = useSelector((state) => state.exercises);
+    const { activeBodyPart, currentPage } = useSelector(
+        (state) => state.exercises
+    );
+
+    useEffect(() => {
+        if (currentPage) {
+            dispatch(
+                fetchExercises({
+                    bodyPart: activeBodyPart,
+                    search: search.toLowerCase(),
+                    pageNr: currentPage,
+                })
+            );
+        }
+    }, [currentPage, activeBodyPart, dispatch]);
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
@@ -16,11 +30,12 @@ const Search = () => {
             fetchExercises({
                 bodyPart: activeBodyPart,
                 search: search.toLowerCase(),
-                pageNr: 1,
+                pageNr: currentPage,
             })
         );
         setSearch('');
     };
+
     return (
         <WaveWrapper>
             <form

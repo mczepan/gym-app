@@ -17,9 +17,9 @@ export const fetchBodyParts = createAsyncThunk(
 
 export const fetchExercises = createAsyncThunk(
     'exercises/fetchExercises',
-    async ({ bodyPart, search, pageNr = 0 }) => {
-        let startIndex = 0 + 12 * pageNr;
-        let lastIndex = 12 + 12 * pageNr;
+    async ({ bodyPart, search, pageNr = 1 }) => {
+        let startIndex = 0 + 12 * (pageNr - 1);
+        let lastIndex = 12 + 12 * (pageNr - 1);
         if (bodyPart === 'all') {
             // let response = await request.get(`/exercises`);
             let response = { data: tmpExercises };
@@ -82,7 +82,7 @@ const initialState = {
     exercises: [],
     exerciseDetails: {},
     exercisesTotal: 0,
-    currentPage: 0,
+    currentPage: 1,
     bodyParts: bodyParts,
     activeBodyPart: persistedActiveBodyPartState
         ? persistedActiveBodyPartState
