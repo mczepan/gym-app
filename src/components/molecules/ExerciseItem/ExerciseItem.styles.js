@@ -41,6 +41,7 @@ export const ExerciseName = styled.span`
     color: ${({ theme: { palette } }) => palette.title};
     font-size: ${({ theme: { fontSize } }) => fontSize.normal};
     font-weight: 600;
+    text-align: center;
     text-transform: capitalize;
     display: table;
     margin: auto;
