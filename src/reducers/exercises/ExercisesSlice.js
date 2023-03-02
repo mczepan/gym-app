@@ -132,7 +132,6 @@ export const exercisesSlice = createSlice({
             state.isLoading = true;
         });
         builder.addCase(fetchExercises.fulfilled, (state, action) => {
-            console.log(action.payload, 'action.payload');
             state.exercises = action.payload.data.exercises;
             state.exercisesTotal = action.payload.data.totalElements;
             state.isLoading = false;
