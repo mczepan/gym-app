@@ -16,6 +16,7 @@ const Search = () => {
             fetchExercises({
                 bodyPart: activeBodyPart,
                 search: search.toLowerCase(),
+                pageNr: 1,
             })
         );
         setSearch('');

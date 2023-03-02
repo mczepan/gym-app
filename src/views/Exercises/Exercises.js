@@ -4,6 +4,7 @@ import Search from 'components/organisms/Search/Search';
 import BodyParts from 'components/organisms/BodyParts/BodyParts';
 import ExercisesList from 'components/organisms/ExercisesList/ExercisesList';
 import { NoPaddingCard } from './Exercises.styles';
+import Pagination from 'components/molecules/Pagination/Pagination';
 
 const Exercises = () => {
     return (
@@ -12,6 +13,7 @@ const Exercises = () => {
                 <Search />
                 <BodyParts />
                 <ExercisesList />
+                <Pagination />
             </NoPaddingCard>
         </SectionWrapper>
     );

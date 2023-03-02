@@ -1,6 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import request from 'common/api';
-import { bodyParts } from 'helpers/helpers';
+import {
+    bodyParts,
+    tmpCardioExercises,
+    tmpExerciseDetails,
+    tmpExercises,
+} from 'helpers/helpers';
 import { loadState, saveState } from 'localStorage';
 
 const persistedActiveBodyPartState = loadState();
@@ -12,39 +17,52 @@ export const fetchBodyParts = createAsyncThunk(
 
 export const fetchExercises = createAsyncThunk(
     'exercises/fetchExercises',
-    async ({ bodyPart, search }) => {
+    async ({ bodyPart, search, pageNr = 0 }) => {
+        let startIndex = 0 + 12 * pageNr;
+        let lastIndex = 12 + 12 * pageNr;
         if (bodyPart === 'all') {
-            let response = await request.get(`/exercises`);
-            if (search) {
-                response = {
-                    ...response,
-                    data: response.data.filter((data) => {
-                        return (
-                            data.name.toLowerCase().includes(search) ||
-                            data.target.toLowerCase().includes(search) ||
-                            data.equipment.toLowerCase().includes(search) ||
-                            data.bodyPart.toLowerCase().includes(search)
-                        );
-                    }),
-                };
-            }
+            // let response = await request.get(`/exercises`);
+            let response = { data: tmpExercises };
+
+            response = {
+                ...response,
+                data: {
+                    exercises: response.data
+                        .slice(startIndex, lastIndex)
+                        .filter((data) => {
+                            return (
+                                data.name.toLowerCase().includes(search) ||
+                                data.target.toLowerCase().includes(search) ||
+                                data.equipment.toLowerCase().includes(search) ||
+                                data.bodyPart.toLowerCase().includes(search)
+                            );
+                        }),
+                    totalElements: response.data.length,
+                },
+            };
 
             return response;
         } else {
-            let response = await request.get(`/exercises/bodyPart/${bodyPart}`);
-            if (search) {
-                response = {
-                    ...response,
-                    data: response.data.filter((data) => {
-                        return (
-                            data.name.toLowerCase().includes(search) ||
-                            data.target.toLowerCase().includes(search) ||
-                            data.equipment.toLowerCase().includes(search) ||
-                            data.bodyPart.toLowerCase().includes(search)
-                        );
-                    }),
-                };
-            }
+            // let response = await request.get(`/exercises/bodyPart/${bodyPart}`);
+            let response = { data: tmpCardioExercises };
+
+            response = {
+                ...response,
+                data: {
+                    exercises: response.data
+                        .slice(startIndex, lastIndex)
+                        .filter((data) => {
+                            return (
+                                data.name.toLowerCase().includes(search) ||
+                                data.target.toLowerCase().includes(search) ||
+                                data.equipment.toLowerCase().includes(search) ||
+                                data.bodyPart.toLowerCase().includes(search)
+                            );
+                        }),
+                    totalElements: response.data.length,
+                },
+            };
+
             return response;
         }
     }
@@ -53,7 +71,9 @@ export const fetchExercises = createAsyncThunk(
 export const fetchExerciseDetails = createAsyncThunk(
     'exercises/fetchExerciseDetails',
     async (id) => {
-        const response = await request.get(`/exercises/exercise/${id}`);
+        // const response = await request.get(`/exercises/exercise/${id}`);
+        const response = { data: tmpExerciseDetails };
+
         return response.data;
     }
 );
@@ -61,6 +81,8 @@ export const fetchExerciseDetails = createAsyncThunk(
 const initialState = {
     exercises: [],
     exerciseDetails: {},
+    exercisesTotal: 0,
+    currentPage: 0,
     bodyParts: bodyParts,
     activeBodyPart: persistedActiveBodyPartState
         ? persistedActiveBodyPartState
@@ -76,6 +98,9 @@ export const exercisesSlice = createSlice({
         setActiveBodyPart(state, action) {
             saveState(action.payload);
             state.activeBodyPart = action.payload;
+        },
+        setCurrentPage(state, action) {
+            state.currentPage = action.payload;
         },
     },
     extraReducers: (builder) => {
@@ -107,7 +132,9 @@ export const exercisesSlice = createSlice({
             state.isLoading = true;
         });
         builder.addCase(fetchExercises.fulfilled, (state, action) => {
-            state.exercises = action.payload.data;
+            console.log(action.payload, 'action.payload');
+            state.exercises = action.payload.data.exercises;
+            state.exercisesTotal = action.payload.data.totalElements;
             state.isLoading = false;
         });
         builder.addCase(fetchExercises.rejected, (state, action) => {
@@ -132,4 +159,4 @@ export const exercisesSlice = createSlice({
     },
 });
 
-export const { setActiveBodyPart } = exercisesSlice.actions;
+export const { setActiveBodyPart, setCurrentPage } = exercisesSlice.actions;
