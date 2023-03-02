@@ -6,18 +6,24 @@ import { ExercisesListGridWrapper } from './ExercisesList.styles';
 const ExercisesList = () => {
     const { exercises, currentPage } = useSelector((state) => state.exercises);
     useEffect(() => {
-        const scrollTo = document.getElementById('exercises');
-        scrollTo.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-            inline: 'start',
-        });
-    }, [currentPage]);
+        setTimeout(() => {
+            if (exercises.length) {
+                const scrollTo = document.getElementById('exercises');
+                scrollTo.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                    inline: 'nearest',
+                });
+            }
+        }, [1000]);
+    }, [currentPage, exercises]);
     return (
         <ExercisesListGridWrapper id="exercises">
-            {exercises.map((e) => (
-                <ExerciseItem exercise={e} key={e.id} />
-            ))}
+            {exercises.length ? (
+                exercises.map((e) => <ExerciseItem exercise={e} key={e.id} />)
+            ) : (
+                <div>Loading...</div>
+            )}
         </ExercisesListGridWrapper>
     );
 };
