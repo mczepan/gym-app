@@ -5,8 +5,8 @@ export const BodyCardWrapper = styled.div`
     position: relative;
     height: auto;
     width: auto;
-    min-width: 220px;
-    min-height: 220px;
+    min-width: 175px;
+    min-height: 175px;
     background: #fff;
     border-radius: 20px;
     border: 5px solid #fff;
@@ -19,11 +19,14 @@ export const BodyCardWrapper = styled.div`
         transform: scale(1.1);
     }
     @media screen and (max-width: 992px) {
-        min-width: 175px;
-        min-height: 175px;
         &:hover {
             transform: none;
         }
+    }
+    @media screen and (max-width: 600px) {
+        min-width: 130px;
+        min-height: 130px;
+        border: none;
     }
 `;
 
@@ -41,10 +44,22 @@ export const BodyCardHeader = styled.div`
     display: grid;
     place-items: center;
     transition: all 0.5s ease-in-out;
+    @media screen and (max-width: 600px) {
+        box-sizing: border-box;
+        height: auto;
+        border: none;
+        background: none;
+        padding-top: 10px;
+        transition: all 0.3s ease-in-out;
+        border-top: ${({ theme: { palette }, isActive }) =>
+            isActive
+                ? `10px solid ${palette.textAlternative}`
+                : '10px solid transparent'};
 `;
 
 export const BodyCardContent = styled.div`
     position: absolute;
+    width: max-content;
     top: 50%;
     left: 50%;
     transform: translate(-50%, 100%);
