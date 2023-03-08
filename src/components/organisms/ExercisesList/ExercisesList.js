@@ -2,9 +2,11 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import ExerciseItem from 'components/molecules/ExerciseItem/ExerciseItem';
 import { ExercisesListGridWrapper } from './ExercisesList.styles';
+import Loader from 'components/atoms/Loader/Loader';
+import NotFoundTitle from 'components/atoms/NotFoundTitle/NotFoundTitle';
 
 const ExercisesList = () => {
-    const { exercises, currentPage, loading } = useSelector(
+    const { exercises, currentPage, isLoading } = useSelector(
         (state) => state.exercises
     );
     useEffect(() => {
@@ -19,16 +21,16 @@ const ExercisesList = () => {
             }
         }, [1000]);
     }, [currentPage, exercises]);
-    return (
+    return exercises.length ? (
         <ExercisesListGridWrapper id="exercises">
-            {exercises.length ? (
-                exercises.map((e) => <ExerciseItem exercise={e} key={e.id} />)
-            ) : loading ? (
-                <div>Loading...</div>
-            ) : (
-                <div>No data found...</div>
-            )}
+            {exercises.map((e) => (
+                <ExerciseItem exercise={e} key={e.id} />
+            ))}
         </ExercisesListGridWrapper>
+    ) : isLoading ? (
+        <Loader />
+    ) : (
+        <NotFoundTitle />
     );
 };
 
