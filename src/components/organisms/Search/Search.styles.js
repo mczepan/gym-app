@@ -5,7 +5,7 @@ export const WaveWrapper = styled.div`
     align-items: center;
     justify-content: center;
     content: '';
-    /* position: absolute; */
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;

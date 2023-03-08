@@ -24,20 +24,20 @@ export const fetchExercises = createAsyncThunk(
             let response = await request.get(`/exercises`);
             // let response = { data: tmpExercises };
 
+            let filteredData = response.data.filter((data) => {
+                return (
+                    data.name.toLowerCase().includes(search) ||
+                    data.target.toLowerCase().includes(search) ||
+                    data.equipment.toLowerCase().includes(search) ||
+                    data.bodyPart.toLowerCase().includes(search)
+                );
+            });
+
             response = {
                 ...response,
                 data: {
-                    exercises: response.data
-                        .slice(startIndex, lastIndex)
-                        .filter((data) => {
-                            return (
-                                data.name.toLowerCase().includes(search) ||
-                                data.target.toLowerCase().includes(search) ||
-                                data.equipment.toLowerCase().includes(search) ||
-                                data.bodyPart.toLowerCase().includes(search)
-                            );
-                        }),
-                    totalElements: response.data.length,
+                    exercises: filteredData.slice(startIndex, lastIndex),
+                    totalElements: filteredData.length,
                 },
             };
 
@@ -46,20 +46,20 @@ export const fetchExercises = createAsyncThunk(
             let response = await request.get(`/exercises/bodyPart/${bodyPart}`);
             // let response = { data: tmpCardioExercises };
 
+            let filteredData = response.data.filter((data) => {
+                return (
+                    data.name.toLowerCase().includes(search) ||
+                    data.target.toLowerCase().includes(search) ||
+                    data.equipment.toLowerCase().includes(search) ||
+                    data.bodyPart.toLowerCase().includes(search)
+                );
+            });
+
             response = {
                 ...response,
                 data: {
-                    exercises: response.data
-                        .slice(startIndex, lastIndex)
-                        .filter((data) => {
-                            return (
-                                data.name.toLowerCase().includes(search) ||
-                                data.target.toLowerCase().includes(search) ||
-                                data.equipment.toLowerCase().includes(search) ||
-                                data.bodyPart.toLowerCase().includes(search)
-                            );
-                        }),
-                    totalElements: response.data.length,
+                    exercises: filteredData.slice(startIndex, lastIndex),
+                    totalElements: filteredData.length,
                 },
             };
 
