@@ -27,12 +27,6 @@ const Search = () => {
     return (
         <WaveWrapper>
             <Dropdown setSearch={setSearch} selectedItem={search} />
-            {/* <SearchButton /> */}
-            {/* <SearchInput
-        //             placeholderText={'Search exercises...'}
-        //             value={search}
-        //             onChange={(e) => setSearch(e.target.value)}
-        //         /> */}
         </WaveWrapper>
     );
 };

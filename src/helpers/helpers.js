@@ -10864,12 +10864,13 @@ export const tmpExerciseDetails = {
 };
 
 export const searchData = [
-    { id: 0, label: 'Bands' },
+    { id: 0, label: 'Band' },
     { id: 1, label: 'Barbell' },
     { id: 2, label: 'Bench' },
     { id: 3, label: 'Cable' },
     { id: 4, label: 'Dumbbell' },
     { id: 5, label: 'Rowing' },
     { id: 6, label: 'Step' },
-    { id: 7, label: 'Treadmill' },
+    { id: 7, label: 'Squad' },
+    { id: 8, label: 'Treadmill' },
 ];
