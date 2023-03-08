@@ -2,9 +2,9 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import request from 'common/api';
 import {
     bodyParts,
-    // tmpCardioExercises,
-    // tmpExerciseDetails,
-    // tmpExercises,
+    tmpCardioExercises,
+    tmpExerciseDetails,
+    tmpExercises,
 } from 'helpers/helpers';
 import { loadState, saveState } from 'localStorage';
 
@@ -21,8 +21,8 @@ export const fetchExercises = createAsyncThunk(
         let startIndex = 0 + 12 * (pageNr - 1);
         let lastIndex = 12 + 12 * (pageNr - 1);
         if (bodyPart === 'all') {
-            let response = await request.get(`/exercises`);
-            // let response = { data: tmpExercises };
+            // let response = await request.get(`/exercises`);
+            let response = { data: tmpExercises };
 
             response = {
                 ...response,
@@ -43,8 +43,8 @@ export const fetchExercises = createAsyncThunk(
 
             return response;
         } else {
-            let response = await request.get(`/exercises/bodyPart/${bodyPart}`);
-            // let response = { data: tmpCardioExercises };
+            // let response = await request.get(`/exercises/bodyPart/${bodyPart}`);
+            let response = { data: tmpCardioExercises };
 
             response = {
                 ...response,
@@ -71,8 +71,8 @@ export const fetchExercises = createAsyncThunk(
 export const fetchExerciseDetails = createAsyncThunk(
     'exercises/fetchExerciseDetails',
     async (id) => {
-        const response = await request.get(`/exercises/exercise/${id}`);
-        // const response = { data: tmpExerciseDetails };
+        // const response = await request.get(`/exercises/exercise/${id}`);
+        const response = { data: tmpExerciseDetails };
 
         return response.data;
     }

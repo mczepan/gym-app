@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchExercises } from 'reducers/exercises/ExercisesSlice';
-import SearchButton from 'components/atoms/SearchButton/SearchButton';
-import SearchInput from 'components/atoms/SearchInput/SearchInput';
 import { WaveWrapper } from './Search.styles';
+import Dropdown from 'components/molecules/Dropdown/Dropdown';
 
 const Search = () => {
     const dispatch = useDispatch();
     const [search, setSearch] = useState('');
+
     const { activeBodyPart, currentPage } = useSelector(
         (state) => state.exercises
     );
@@ -22,33 +22,17 @@ const Search = () => {
                 })
             );
         }
-    }, [currentPage, activeBodyPart, dispatch]);
-
-    const handleSearchSubmit = (e) => {
-        e.preventDefault();
-        dispatch(
-            fetchExercises({
-                bodyPart: activeBodyPart,
-                search: search.toLowerCase(),
-                pageNr: currentPage,
-            })
-        );
-        setSearch('');
-    };
+    }, [currentPage, activeBodyPart, dispatch, search]);
 
     return (
         <WaveWrapper>
-            <form
-                style={{ position: 'relative' }}
-                onSubmit={handleSearchSubmit}
-            >
-                <SearchButton />
-                <SearchInput
-                    placeholderText={'Search exercises...'}
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                />
-            </form>
+            <Dropdown setSearch={setSearch} selectedItem={search} />
+            {/* <SearchButton /> */}
+            {/* <SearchInput
+        //             placeholderText={'Search exercises...'}
+        //             value={search}
+        //             onChange={(e) => setSearch(e.target.value)}
+        //         /> */}
         </WaveWrapper>
     );
 };
